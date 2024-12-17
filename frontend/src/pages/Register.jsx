@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   const [login, setLogin] = useState(false);
-  const [useraname, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const _700 = useMediaQuery("(min-width:700px)");
 
   const toggleLogin = () => {
     setLogin((pre) => !pre);
   };
   const handleLogin = () => {
-    console.log("login");
+    const data = { email, password };
+    console.log(data);
   };
   const handleRegister = () => {
-    console.log("register");
+    const data = { username, email, password };
+
+    console.log("data");
   };
   return (
     <Stack
@@ -36,12 +40,17 @@ const Register = () => {
           top: "5rem",
         }}
       >
-        Threads
+        {_700 ? "Threads" : null}
       </Typography>
-      <Stack flexDirection={"column"} gap={2} mt={20} width={"40%"}>
+      <Stack
+        flexDirection={"column"}
+        gap={2}
+        mt={_700 ? 20 : 0}
+        width={_700 ? "40%" : "90%"}
+      >
         <Typography
           variant="h5"
-          fontSize={"1.5rem"}
+          fontSize={_700 ? "1.5rem" : "1rem"}
           alignSelf={"center"}
           sx={{
             borderBottom: "1px solid black",
@@ -94,7 +103,7 @@ const Register = () => {
         </Button>
         <Typography
           variant="subtitle2"
-          fontSize={"1.3rem"}
+          fontSize={_700 ? "1.3rem" : "1rem"}
           alignSelf={"center"}
           className="login-link"
         >
