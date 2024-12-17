@@ -54,6 +54,14 @@ const Register = () => {
         >
           click
         </Button>
+        <Typography
+          variant="subtitle2"
+          fontSize={"1.3rem"}
+          alignSelf={"center"}
+          className="login-link"
+        >
+          Already have an account ? <span>Login</span>
+        </Typography>
       </Stack>
     </Stack>
   );
