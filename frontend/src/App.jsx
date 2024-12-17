@@ -7,21 +7,22 @@ import Contact from "./pages/protected/Contact";
 import Search from "./pages/protected/Search";
 import Error from "./pages/Error";
 import Register from "./pages/Register";
+import { Box } from "@mui/material";
+import ProtectedLayout from "./pages/protected/ProtectedLayout";
 
 const App = () => {
   return (
-    <>
-      <Register />
-    </>
-    // <BrowserRouter>
-    //   <Header />
-    //   <Routes>
-    //     <Route exact path="/" element={<Home />} />
-    //     <Route exact path="/contact" element={<Contact />} />
-    //     <Route exact path="/search" element={<Search />} />
-    //     <Route path="*" element={<Error />} />
-    //   </Routes>
-    // </BrowserRouter>
+    <Box>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<ProtectedLayout />}>
+            <Route exact path="" element={<Home />} />
+            <Route exact path="post/:id" element={<h1>posts</h1>} />
+            <Route exact path="search" element={<Search />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Box>
   );
 };
 
