@@ -46,9 +46,11 @@ const PostOne = () => {
           sx={{ border: "0.1rem solid gray", width: "0px", height: "100%" }}
         ></Stepper>
         <AvatarGroup
-          total={4}
+          total={5}
           sx={{ "& .MuiAvatar-root": { width: 24, height: 24, fontSize: 12 } }}
-        ></AvatarGroup>
+        >
+          <Avatar src="" alt="" />
+        </AvatarGroup>
       </Stack>
     </Stack>
   );
