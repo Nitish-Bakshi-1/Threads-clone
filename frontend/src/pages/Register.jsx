@@ -4,8 +4,18 @@ import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   const [login, setLogin] = useState(false);
+  const [useraname, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
   const toggleLogin = () => {
     setLogin((pre) => !pre);
+  };
+  const handleLogin = () => {
+    console.log("login");
+  };
+  const handleRegister = () => {
+    console.log("register");
   };
   return (
     <Stack
@@ -43,10 +53,28 @@ const Register = () => {
           <TextField
             variant="outlined"
             placeholder="enter useraname"
+            onChange={(e) => {
+              const val = e.target.value;
+              setUsername(val);
+            }}
           ></TextField>
         )}
-        <TextField variant="outlined" placeholder="enter email"></TextField>
-        <TextField variant="outlined" placeholder="enter password"></TextField>
+        <TextField
+          variant="outlined"
+          placeholder="enter email"
+          onChange={(e) => {
+            const val = e.target.value;
+            setEmail(val);
+          }}
+        ></TextField>
+        <TextField
+          variant="outlined"
+          placeholder="enter password"
+          onChange={(e) => {
+            const val = e.target.value;
+            setPassword(val);
+          }}
+        ></TextField>
         <Button
           size="large"
           sx={{
@@ -60,6 +88,7 @@ const Register = () => {
               opacity: "0.8",
             },
           }}
+          onClick={login ? handleLogin : handleRegister}
         >
           {login ? "LOGIN" : "REGISTER"}
         </Button>
