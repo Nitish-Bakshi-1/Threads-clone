@@ -4,7 +4,9 @@ import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   const [login, setLogin] = useState(false);
-  console.log(login);
+  const toggleLogin = () => {
+    setLogin((pre) => !pre);
+  };
   return (
     <Stack
       width={"100%"}
@@ -35,7 +37,7 @@ const Register = () => {
             borderBottom: "1px solid black",
           }}
         >
-          Signup
+          {login ? "Login with email " : "Register with email"}
         </Typography>
         <TextField variant="outlined" placeholder="enter useraname"></TextField>
         <TextField variant="outlined" placeholder="enter email"></TextField>
@@ -62,7 +64,7 @@ const Register = () => {
           alignSelf={"center"}
           className="login-link"
         >
-          Already have an account ? <span>Login</span>
+          Already have an account ? <span onClick={toggleLogin}>Login</span>
         </Typography>
       </Stack>
     </Stack>
