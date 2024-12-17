@@ -9,7 +9,7 @@ const Home = () => {
         <Input />
         <Stack
           flexDirection={"column"}
-          width={"60%"}
+          width={"80%"}
           mx={"auto"}
           gap={2}
           mb={10}

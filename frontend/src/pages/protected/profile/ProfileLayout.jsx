@@ -32,21 +32,29 @@ const ProfileLayout = () => {
           alignItems={"center"}
         >
           <Stack>
-            <Typography variant="h2" fontWeight={"bold"} fontSize={"2rem"}>
+            <Typography
+              variant="h2"
+              fontWeight={"bold"}
+              fontSize={_300 ? "2rem" : "1rem"}
+            >
               Nitish_bbbbb
             </Typography>
             <Stack flexDirection={"row"} alignItems={"center"} gap={1}>
-              <Typography variant="h2" fontSize={"1rem"}>
+              <Typography variant="h2" fontSize={_300 ? "1rem" : "0.8rem"}>
                 Nitish_bbbbb
               </Typography>
               <Chip
                 label="threads.net"
                 size="small"
-                sx={{ fontSize: "0.8rem" }}
+                sx={{ fontSize: _300 ? "0.8rem" : "0.6rem" }}
               />
             </Stack>
           </Stack>
-          <Avatar src="" alt="" sx={{ width: 60, height: 60 }} />
+          <Avatar
+            src=""
+            alt=""
+            sx={{ width: _300 ? 60 : 40, height: _300 ? 60 : 40 }}
+          />
         </Stack>
         <Typography variant="subtitle2">This is bio!</Typography>
         <Stack
@@ -57,14 +65,14 @@ const ProfileLayout = () => {
           <Typography variant="subtitle2" color={"gray"}>
             19 followers
           </Typography>
-          <FaInstagram size={40} />
+          <FaInstagram size={_300 ? 40 : 24} />
         </Stack>
       </Stack>
       <Button
         Size="large"
         sx={{
           color: "black",
-          width: "800px",
+          width: _700 ? "800px" : "90%",
           mx: "auto",
           textAlign: "center",
           border: "1px solid gray",
@@ -82,8 +90,8 @@ const ProfileLayout = () => {
         my={5}
         pb={2}
         borderBottom={"2px solid gray"}
-        fontSize={"1.2rem"}
-        width={"800px"}
+        fontSize={_500 ? "1.2rem" : _300 ? "1.1rem" : "0.9rem"}
+        width={_700 ? "800px" : "90%"}
         mx={"auto"}
       >
         <Link to={"/profile/threads/1"} className="Link">
