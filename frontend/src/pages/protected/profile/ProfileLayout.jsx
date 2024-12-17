@@ -76,13 +76,13 @@ const ProfileLayout = () => {
         width={"800px"}
         mx={"auto"}
       >
-        <Link to={"/profile/threads/1"} className="link">
+        <Link to={"/profile/threads/1"} className="Link">
           Threads
         </Link>
-        <Link to={"/profile/replies/1"} className="link">
+        <Link to={"/profile/replies/1"} className="Link">
           replies
         </Link>
-        <Link to={"/profile/reposts/1"} className="link">
+        <Link to={"/profile/reposts/1"} className="Link">
           Reposts
         </Link>
       </Stack>

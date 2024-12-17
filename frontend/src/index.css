@@ -7,3 +7,16 @@
   cursor: pointer;
   color: blue;
 }
+.Link {
+  color: black;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  padding: 0.1rem;
+}
+.Link:hover {
+  border-bottom: 1px solid grey;
+}
+.Link:focus {
+  border-bottom: 3px solid grey;
+  opacity: 0.8;
+}

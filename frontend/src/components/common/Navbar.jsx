@@ -16,19 +16,19 @@ const Navbar = () => {
         justifyContent={"space-around"}
         alignItems={"center"}
       >
-        <Link to={"/"}>
+        <Link to={"/"} className="Link">
           <MdHome style={{ color: "black" }} size={40} />
         </Link>
-        <Link to={"/search"}>
+        <Link to={"/search"} className="Link">
           <FaSearch style={{ color: "black" }} size={32} />
         </Link>
-        <Link>
+        <Link className="Link">
           <RiEditBoxFill style={{ color: "black" }} size={32} />
         </Link>
-        <Link>
+        <Link className="Link">
           <FaHeart style={{ color: "black" }} size={32} />
         </Link>
-        <Link to={"/profile/threads/1"}>
+        <Link to={"/profile/threads/1"} className="Link">
           <FaUser style={{ color: "black" }} size={32} />
         </Link>
       </Stack>
