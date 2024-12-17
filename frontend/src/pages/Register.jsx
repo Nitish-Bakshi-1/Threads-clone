@@ -39,7 +39,12 @@ const Register = () => {
         >
           {login ? "Login with email " : "Register with email"}
         </Typography>
-        <TextField variant="outlined" placeholder="enter useraname"></TextField>
+        {login ? null : (
+          <TextField
+            variant="outlined"
+            placeholder="enter useraname"
+          ></TextField>
+        )}
         <TextField variant="outlined" placeholder="enter email"></TextField>
         <TextField variant="outlined" placeholder="enter password"></TextField>
         <Button
