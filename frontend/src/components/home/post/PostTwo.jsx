@@ -16,7 +16,7 @@ const PostTwo = () => {
           </Typography>
         </Stack>
         <img
-          src="/error-bg.png"
+          src="/Threads-logo-white-bg.png"
           Loading={"lazy"}
           width={"400px"}
           height={"auto"}

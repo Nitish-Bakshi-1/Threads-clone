@@ -6,7 +6,7 @@ const Input = () => {
     <Stack
       flexDirection={"row"}
       alignItems={"center"}
-      width={"70%"}
+      width={"60%"}
       height={"28"}
       justifyContent={"space-between"}
       p={3}

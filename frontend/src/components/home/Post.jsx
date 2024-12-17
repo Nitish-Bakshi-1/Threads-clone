@@ -7,18 +7,19 @@ const Post = () => {
   return (
     <Stack
       flexDirection={"row"}
-      justifyContent={"space-between"}
+      justifyContent={"center "}
       border={"1px solid gray"}
-      width={"70%"}
+      width={"50%"}
       borderRadius={"15px"}
       p={2}
       mx={"auto"}
       sx={{
         ":hover": {
           cursor: "pointer",
-          boxShadow: "6px 1px 40px 6px lightgray",
+          // boxShadow: "6px 1px 40px 6px lightgray",
+          transform: "scale(1.02)",
         },
-        transition: "all ease-in-out 0.3s",
+        transition: "all ease-in-out 0.2s",
       }}
     >
       <Stack flexDirection={"row"} gap={2}>
