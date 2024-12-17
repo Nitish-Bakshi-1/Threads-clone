@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, Stack, TextField, useMediaQuery } from "@mui/material";
 import Input from "../../components/home/Input";
 import Post from "../../components/home/Post";
 const Home = () => {

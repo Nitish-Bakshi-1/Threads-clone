@@ -1,11 +1,21 @@
 import React from "react";
-import { Stack, Typography, Avatar, Button } from "@mui/material";
+import {
+  Stack,
+  Typography,
+  Avatar,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 import { Chip } from "@mui/material";
 import { FaInstagram } from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const ProfileLayout = () => {
+  const _700 = useMediaQuery("(min-width:700px)");
+  const _500 = useMediaQuery("(min-width:500px)");
+  const _300 = useMediaQuery("(min-width:300px)");
+
   return (
     <>
       <Stack
@@ -13,7 +23,7 @@ const ProfileLayout = () => {
         gap={2}
         p={2}
         m={2}
-        width={"800px"}
+        width={_700 ? "800px" : "90%"}
         mx={"auto"}
       >
         <Stack
