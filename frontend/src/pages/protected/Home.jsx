@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <Stack>
       <Input />
-      <Stack flexDirection={"column"} gap={2} mb={10}>
+      <Stack flexDirection={"column"} width={"60%"} mx={"auto"} gap={2} mb={10}>
         <Post />
         <Post />
         <Post />

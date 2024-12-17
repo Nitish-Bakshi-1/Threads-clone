@@ -7,9 +7,9 @@ const Post = () => {
   return (
     <Stack
       flexDirection={"row"}
-      justifyContent={"center "}
+      justifyContent={"space-around "}
       border={"1px solid gray"}
-      width={"50%"}
+      width={"70%"}
       borderRadius={"15px"}
       p={2}
       mx={"auto"}
