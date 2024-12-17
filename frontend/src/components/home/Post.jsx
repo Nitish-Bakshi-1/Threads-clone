@@ -8,14 +8,15 @@ const Post = () => {
     <Stack
       flexDirection={"row"}
       justifyContent={"space-between"}
-      borderBottom={"3px solid gray"}
-      width={"70%"}
+      borderBottom={"1px solid gray"}
+      width={"50%"}
+      borderRadius={"15px 15px 0 0"}
       p={2}
       mx={"auto"}
       sx={{
         ":hover": {
           cursor: "pointer",
-          boxShadow: "10px 10px 10px gray",
+          boxShadow: "6px 1px 40px 6px lightgray",
         },
         transition: "all ease-in-out 0.3s",
       }}

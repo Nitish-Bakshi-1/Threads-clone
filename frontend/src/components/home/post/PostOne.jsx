@@ -43,7 +43,11 @@ const PostOne = () => {
         <Stepper
           orientation={"vertical"}
           activeStep={0}
-          sx={{ border: "0.1rem solid gray", width: "0px", height: "100%" }}
+          sx={{
+            border: "0.1rem solid lightgray",
+            width: "0px",
+            height: "100%",
+          }}
         ></Stepper>
         <AvatarGroup
           total={5}

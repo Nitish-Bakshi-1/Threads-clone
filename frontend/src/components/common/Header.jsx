@@ -24,6 +24,7 @@ const Header = () => {
         justifyContent={"center"}
         width={"550px"}
         bgcolor={"aliceblue"}
+        border={"2px solid gray"}
         borderRadius={"0 0 20px 20px"}
         zIndex={2}
         height={96}
