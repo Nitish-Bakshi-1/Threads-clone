@@ -61,7 +61,7 @@ const Register = () => {
             },
           }}
         >
-          click
+          {login ? "LOGIN" : "REGISTER"}
         </Button>
         <Typography
           variant="subtitle2"
@@ -69,7 +69,10 @@ const Register = () => {
           alignSelf={"center"}
           className="login-link"
         >
-          Already have an account ? <span onClick={toggleLogin}>Login</span>
+          {login ? "Already have an account" : "Don't have an account"}
+          <span onClick={toggleLogin} style={{ marginLeft: "0.5rem" }}>
+            {login ? "Sign up" : "Login "}
+          </span>
         </Typography>
       </Stack>
     </Stack>
