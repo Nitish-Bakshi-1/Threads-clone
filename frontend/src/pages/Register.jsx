@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack, Typography } from "@mui/material";
 import { Button, TextField } from "@mui/material";
 
 const Register = () => {
+  const [login, setLogin] = useState(false);
+  console.log(login);
   return (
     <Stack
       width={"100%"}
@@ -27,7 +29,7 @@ const Register = () => {
       <Stack flexDirection={"column"} gap={2} mt={20} width={"40%"}>
         <Typography
           variant="h5"
-          font-size={"1.5rem"}
+          fontSize={"1.5rem"}
           alignSelf={"center"}
           sx={{
             borderBottom: "1px solid black",

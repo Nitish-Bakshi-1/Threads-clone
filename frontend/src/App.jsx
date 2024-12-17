@@ -27,6 +27,7 @@ const App = () => {
               <Route exat path="reposts/:id" element={<Reposts />} />
             </Route>
           </Route>
+          <Route exat path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </Box>
