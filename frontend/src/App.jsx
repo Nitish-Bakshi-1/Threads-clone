@@ -1,14 +1,11 @@
 import React from "react";
-import Loading from "./components/common/Loading";
-import Header from "./components/common/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/protected/Home";
-import Contact from "./pages/protected/Contact";
-import Search from "./pages/protected/Search";
-import Error from "./pages/Error";
-import Register from "./pages/Register";
-import { Box } from "@mui/material";
 import ProtectedLayout from "./pages/protected/ProtectedLayout";
+import Search from "./pages/protected/Search";
+
+import { Box } from "@mui/material";
+import ProfileLayout from "./pages/protected/profile/ProfileLayout";
 import Threads from "./pages/protected/profile/Threads";
 import Replies from "./pages/protected/profile/Replies";
 import Reposts from "./pages/protected/profile/Reposts";

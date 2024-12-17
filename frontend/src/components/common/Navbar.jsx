@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link>
           <FaHeart style={{ color: "black" }} size={32} />
         </Link>
-        <Link to={"/contact"}>
+        <Link to={"/profile"}>
           <FaUser style={{ color: "black" }} size={32} />
         </Link>
       </Stack>
