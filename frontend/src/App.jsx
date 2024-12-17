@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/protected/Home";
 import ProtectedLayout from "./pages/protected/ProtectedLayout";
 import Search from "./pages/protected/Search";
-
 import { Box } from "@mui/material";
 import ProfileLayout from "./pages/protected/profile/ProfileLayout";
 import Threads from "./pages/protected/profile/Threads";
