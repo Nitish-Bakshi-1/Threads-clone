@@ -14,12 +14,7 @@ const Header = () => {
       justifyContent={"space-around"}
       py={1}
     >
-      <img
-        src="/Threads-logo-black-bg.webp"
-        alt="logo"
-        width={58}
-        height={50}
-      />
+      <img src="/Threads-logo-white-bg.png" alt="logo" width={90} height={50} />
       <Stack
         justifyContent={"center"}
         width={"550px"}

@@ -8,12 +8,14 @@ import ProfileLayout from "./pages/protected/profile/ProfileLayout";
 import Threads from "./pages/protected/profile/Threads";
 import Replies from "./pages/protected/profile/Replies";
 import Reposts from "./pages/protected/profile/Reposts";
+import Register from "./pages/Register";
 
 const App = () => {
   return (
     <Box>
       <BrowserRouter>
         <Routes>
+          <Route path="/register" element={<Register />} />
           <Route exact path="/" element={<ProtectedLayout />}>
             <Route exact path="" element={<Home />} />
             <Route exact path="post/:id" element={<h1>posts</h1>} />
