@@ -4,12 +4,12 @@ import Input from "../../components/home/Input";
 import Post from "../../components/home/Post";
 const Home = () => {
   return (
-    <div>
+    <Stack>
       <Input />
       <Stack flexDirection={"column"} gap={2} mb={10}>
         <Post />
       </Stack>
-    </div>
+    </Stack>
   );
 };
 
