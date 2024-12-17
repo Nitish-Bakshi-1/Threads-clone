@@ -11,7 +11,7 @@ const Comments = () => {
       pb={4}
       borderBottom={"1px solid gray"}
       mx={"auto"}
-      width={"90%"}
+      width={"80%"}
     >
       <Stack flexDirection={"row"} gap={2}>
         <Avatar src="" alt="" />

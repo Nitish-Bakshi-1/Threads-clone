@@ -9,6 +9,7 @@ import Threads from "./pages/protected/profile/Threads";
 import Replies from "./pages/protected/profile/Replies";
 import Reposts from "./pages/protected/profile/Reposts";
 import Register from "./pages/Register";
+import SinglePost from "./pages/protected/SinglePost";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route exact path="/" element={<ProtectedLayout />}>
             <Route exact path="" element={<Home />} />
-            <Route exact path="post/:id" element={<h1>posts</h1>} />
+            <Route exact path="post/:id" element={<SinglePost />} />
             <Route exact path="search" element={<Search />} />
             <Route exact path="profile" element={<ProfileLayout />}>
               <Route exat path="threads/:id" element={<Threads />} />
