@@ -17,7 +17,7 @@ const Navbar = () => {
         alignItems={"center"}
       >
         <Link to={"/"}>
-          <MdHome style={{ color: "black" }} size={32} />
+          <MdHome style={{ color: "black" }} size={40} />
         </Link>
         <Link to={"/search"}>
           <FaSearch style={{ color: "black" }} size={32} />

@@ -22,7 +22,7 @@ const Post = () => {
         transition: "all ease-in-out 0.2s",
       }}
     >
-      <Stack flexDirection={"row"} gap={2}>
+      <Stack flexDirection={"row"} gap={5}>
         <PostOne />
         <PostTwo />
       </Stack>
