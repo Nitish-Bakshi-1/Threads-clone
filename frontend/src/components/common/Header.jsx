@@ -1,7 +1,8 @@
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import React from "react";
 import Navbar from "./Navbar";
 import { TiThMenu } from "react-icons/ti";
+import { useMediaQuery } from "@mui/material";
 
 const Header = () => {
   const _700 = useMediaQuery("(min-width:700px)");
@@ -21,7 +22,7 @@ const Header = () => {
           <img
             src="/Threads-logo-black-bg.webp"
             alt="logo"
-            width={90}
+            width={60}
             height={50}
           />
           <Stack
@@ -35,7 +36,7 @@ const Header = () => {
             <Navbar />
           </Stack>
 
-          <TiThMenu size={32} className="image-icon" />
+          <TiThMenu size={32} className="image-icon" color="grey" />
         </Stack>
       ) : (
         <>
@@ -51,6 +52,23 @@ const Header = () => {
           >
             <Navbar />
           </Stack>
+          <Grid
+            container
+            height={60}
+            justifyContent={"flex-end"}
+            alignItems={"center"}
+            p={1}
+          >
+            <Grid xs={6}>
+              <img
+                src="/Threads-logo-white-bg.png"
+                alt="logo"
+                width={60}
+                height={35}
+              />
+            </Grid>
+            <TiThMenu size={32} className="image-icon" color="grey" />
+          </Grid>
         </>
       )}
     </>
