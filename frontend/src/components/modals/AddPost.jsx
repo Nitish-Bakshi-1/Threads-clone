@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Dialog,
@@ -19,7 +19,15 @@ const AddPost = () => {
   const _500 = useMediaQuery("(min-width:500px)");
   const _300 = useMediaQuery("(min-width:300px)");
 
+  const [text, setText] = useState("");
+  const [media, setMedia] = useState("");
+
+  const mediaRef = useRef();
+
   const handleClose = () => {};
+  const handleMediaRef = () => {
+    mediaRef.current.click();
+  };
 
   return (
     <>
@@ -53,6 +61,9 @@ const AddPost = () => {
                 className={"text1"}
                 placeholder="Start a thread..."
                 autoFocus
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
               />
               <img
                 src=""
@@ -61,8 +72,18 @@ const AddPost = () => {
                 width={_500 ? 300 : _300 ? 200 : 100}
                 height={_500 ? 300 : _300 ? 200 : 100}
               />
-              <FaImages size={28} className="image-icon" />
-              <input type="file" accept="image/*" className="file-input" />
+              <FaImages
+                size={28}
+                className="image-icon"
+                onClick={handleMediaRef}
+              />
+              <input
+                type="file"
+                accept="image/*"
+                className="file-input"
+                ref={mediaRef}
+                onChange={(e) => setMedia(e.target.files[0])}
+              />
             </Stack>
           </Stack>
           <Stack
