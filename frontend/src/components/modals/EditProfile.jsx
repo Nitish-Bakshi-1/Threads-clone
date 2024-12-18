@@ -116,8 +116,6 @@ const EditProfile = () => {
             </Typography>
             <input
               type="text"
-              value={"nitishbakshi"}
-              readOnly
               className="text1"
               placeholder=""
               onChange={(e) => {

@@ -18,7 +18,7 @@ const ProtectedLayout = () => {
     >
       <Header />
       {/* <AddPost /> */}
-      <EditProfile />
+      {/* <EditProfile /> */}
       <Outlet />
     </Stack>
   );
