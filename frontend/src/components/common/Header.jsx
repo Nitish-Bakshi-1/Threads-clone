@@ -36,7 +36,7 @@ const Header = () => {
             <Navbar />
           </Stack>
 
-          <TiThMenu size={32} className="image-icon" color="grey" />
+          <TiThMenu size={32} className="image-icon" color="gray" />
         </Stack>
       ) : (
         <>
