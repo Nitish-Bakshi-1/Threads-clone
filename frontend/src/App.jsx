@@ -13,7 +13,7 @@ import SinglePost from "./pages/protected/SinglePost";
 import Error from "./pages/Error";
 
 const App = () => {
-  const data = false;
+  const data = true;
 
   return (
     <Box>
