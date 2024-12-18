@@ -8,8 +8,10 @@ import {
   Stack,
   Typography,
   Button,
+  Avatar,
 } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
+import { useState } from "react";
 
 const EditProfile = () => {
   const _700 = useMediaQuery("(min-width:700px)");
@@ -44,7 +46,7 @@ const EditProfile = () => {
             <Avatar
               src={pic ? URL.createObjectURL(pic) : null}
               alt=""
-              sx={{ height: 96, height: 96, alignSelf: "center" }}
+              sx={{ height: 96, width: 96, alignSelf: "center" }}
             />
             <Button
               size={"large"}
@@ -63,7 +65,6 @@ const EditProfile = () => {
             >
               Change
             </Button>
-            ref={imageRef}
             <input
               type="file"
               className="file-input"
