@@ -7,6 +7,7 @@ import {
   DialogContent,
   Stack,
   Typography,
+  Button,
 } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
 
@@ -66,6 +67,40 @@ const EditProfile = () => {
               className="text1"
             />
           </Stack>
+          <Stack flexDirection={"column"} gap={1}>
+            <Typography
+              variant="subtitle1"
+              fontWeight={"bold"}
+              fontSize={"1.2rem"}
+              my={2}
+            >
+              email
+            </Typography>
+            <input
+              type="text"
+              value={"nitishbakshi"}
+              readOnly
+              className="text1"
+            />
+          </Stack>
+          <Stack flexDirection={"column"} gap={1}>
+            <Typography
+              variant="subtitle1"
+              fontWeight={"bold"}
+              fontSize={"1.2rem"}
+              my={2}
+            >
+              Bio
+            </Typography>
+            <input
+              type="text"
+              value={"nitishbakshi"}
+              readOnly
+              className="text1"
+              placeholder=""
+            />
+          </Stack>
+          <Button>Update</Button>
         </DialogContent>
       </Dialog>
     </>
