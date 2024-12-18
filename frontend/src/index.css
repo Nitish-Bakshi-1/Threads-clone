@@ -22,3 +22,17 @@ body {
   border-bottom: 3px solid grey;
   opacity: 0.8;
 }
+.text1 {
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  position: relative;
+  left: -10px;
+  color: grey;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  margin-left: 0.5rem;
+}
+.file-input {
+  display: none;
+}

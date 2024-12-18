@@ -29,7 +29,7 @@ const AddPost = () => {
         fullWidth
         fullScreen={_700 ? false : true}
       >
-        <Box position={"absolute"} top={20} right={20} onclick={handleClose}>
+        <Box position={"absolute"} top={20} right={20} onClick={handleClose}>
           <RxCross2 size={28} className="image-icon" />
         </Box>
         <DialogTitle textAlign={"center"} mb={5}>
@@ -37,15 +37,20 @@ const AddPost = () => {
         </DialogTitle>
         <DialogContent>
           <Stack flexDirection={"row"} g={2} mb={5}>
-            <Avatar src="" alt="" />
+            <Avatar sx={{ zIndex: "2" }} src="" alt="" />
             <Stack>
-              <Typography variant="h6" fontWeight={"bold"} fontSize={"1rem"}>
+              <Typography
+                mx={1}
+                variant="h6"
+                fontWeight={"bold"}
+                fontSize={"1rem"}
+              >
                 NitishBakhi001
               </Typography>
               <textarea
                 cols={_500 ? 40 : 25}
                 rows={2}
-                className="text1"
+                className={"text1"}
                 placeholder="Start a thread..."
                 autoFocus
               />
