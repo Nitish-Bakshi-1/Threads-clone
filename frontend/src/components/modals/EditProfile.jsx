@@ -100,7 +100,24 @@ const EditProfile = () => {
               placeholder=""
             />
           </Stack>
-          <Button>Update</Button>
+          <Button
+            size="large"
+            sx={{
+              border: "2px solid grey",
+              borderRadius: "10px",
+              bgcolor: "GrayText",
+              color: "white",
+              width: "100%",
+              my: 2,
+              fontSize: "1.2rem",
+              ":hover": {
+                cursor: "pointer",
+                bgcolor: "grey",
+              },
+            }}
+          >
+            Update
+          </Button>
         </DialogContent>
       </Dialog>
     </>
