@@ -6,7 +6,7 @@ import PostTwo from "./post/PostTwo";
 const Post = () => {
   const _300 = useMediaQuery("(min-width:300px)");
   const _400 = useMediaQuery("(min-width:400px)");
-  const _700 = useMediaQuery("(min-width:700px)");
+  const _700 = useMediaQuery("(min-width:850px)");
 
   return (
     <Stack

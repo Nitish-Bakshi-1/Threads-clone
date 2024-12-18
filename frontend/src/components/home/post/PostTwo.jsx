@@ -1,9 +1,11 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 import { FaRegHeart, FaRegComment, FaRetweet } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
 
 const PostTwo = () => {
+  const _700 = useMediaQuery("(min-width:700px)");
+
   return (
     <Stack flexDirection={"column"} justifyContent={"space-between"}>
       <Stack flexDirection={"column"} gap={2}>
@@ -18,17 +20,17 @@ const PostTwo = () => {
         <img
           src="/Threads-logo-white-bg.png"
           Loading={"lazy"}
-          width={"400px"}
+          width={_700 ? "400px" : "200px"}
           height={"auto"}
           alt=""
         />
       </Stack>
       <Stack flexDirection={"column"} gap={1}>
         <Stack flexDirection={"row"} gap={2} m={1}>
-          <FaRegHeart size={32} />
-          <FaRegComment size={32} />
-          <FaRetweet size={32} />
-          <IoMdSend size={32} />
+          <FaRegHeart size={_700 ? 32 : 25} />
+          <FaRegComment size={_700 ? 32 : 25} />
+          <FaRetweet size={_700 ? 32 : 25} />
+          <IoMdSend size={_700 ? 32 : 25} />
         </Stack>
         <Stack
           flexDirection={"row"}
