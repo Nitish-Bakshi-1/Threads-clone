@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
 import { FaImages } from "react-icons/fa";
+import { BiBorderRadius } from "react-icons/bi";
 
 const AddPost = () => {
   const _700 = useMediaQuery("(min-width:700px)");
@@ -65,7 +66,20 @@ const AddPost = () => {
             <Typography variant="h6" fontSize={"1rem"} color={"gray"}>
               Anyone can reply...
             </Typography>
-            <Button></Button>
+            <Button
+              size={"large"}
+              sx={{
+                bgColor: "GrayText",
+                color: "white",
+                BiBorderRadius: "10px",
+                ":hover": {
+                  bgcolor: "gray",
+                  cursor: "pointer",
+                },
+              }}
+            >
+              Post
+            </Button>
           </Stack>
         </DialogContent>
       </Dialog>
