@@ -10,26 +10,32 @@ import Replies from "./pages/protected/profile/Replies";
 import Reposts from "./pages/protected/profile/Reposts";
 import Register from "./pages/Register";
 import SinglePost from "./pages/protected/SinglePost";
+import Error from "./pages/Error";
 
 const App = () => {
-  const data = true;
+  const data = false;
 
   return (
     <Box>
       <BrowserRouter>
         <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route exact path="/" element={<ProtectedLayout />}>
-            <Route exact path="" element={<Home />} />
-            <Route exact path="post/:id" element={<SinglePost />} />
-            <Route exact path="search" element={<Search />} />
-            <Route exact path="profile" element={<ProfileLayout />}>
-              <Route exat path="threads/:id" element={<Threads />} />
-              <Route exat path="replies/:id" element={<Replies />} />
-              <Route exat path="reposts/:id" element={<Reposts />} />
-            </Route>
-          </Route>
-          <Route exat path="/register" element={<Register />} />
+          {data ? (
+            <>
+              <Route path="/" element={<ProtectedLayout />}>
+                <Route index element={<Home />} />
+                <Route path="post/:id" element={<SinglePost />} />
+                <Route path="search" element={<Search />} />
+                <Route path="profile" element={<ProfileLayout />}>
+                  <Route path="threads/:id" element={<Threads />} />
+                  <Route path="replies/:id" element={<Replies />} />
+                  <Route path="reposts/:id" element={<Reposts />} />
+                </Route>
+              </Route>
+            </>
+          ) : (
+            <Route path="/register" element={<Register />} />
+          )}
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </Box>

@@ -33,7 +33,7 @@ const Register = () => {
         sx={{
           fontSize: "10rem",
           fontFamily: "fantasy",
-          margin: 0,
+          margin: "-2rem",
           padding: 0,
           zIndex: "0",
           position: "absolute",
