@@ -12,6 +12,8 @@ import Register from "./pages/Register";
 import SinglePost from "./pages/protected/SinglePost";
 
 const App = () => {
+  const data = true;
+
   return (
     <Box>
       <BrowserRouter>

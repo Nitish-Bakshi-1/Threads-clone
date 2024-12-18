@@ -1,6 +1,8 @@
-* {
+*,
+body {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 .login-link > span {
   text-decoration: underline;

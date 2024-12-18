@@ -1,5 +1,5 @@
 import React from "react";
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField, useMediaQuery } from "@mui/material";
 import { FaSearch } from "react-icons/fa";
 
 const SearchInput = () => {
