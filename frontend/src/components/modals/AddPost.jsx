@@ -28,6 +28,7 @@ const AddPost = () => {
   const handleMediaRef = () => {
     mediaRef.current.click();
   };
+  const handlePost = () => {};
 
   return (
     <>
@@ -107,6 +108,7 @@ const AddPost = () => {
                   cursor: "pointer",
                 },
               }}
+              onClick={handlePost}
             >
               Post
             </Button>
