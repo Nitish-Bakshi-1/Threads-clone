@@ -1,9 +1,13 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 import { IoIosMore } from "react-icons/io";
 import PostOne from "./post/PostOne";
 import PostTwo from "./post/PostTwo";
 const Post = () => {
+  const _300 = useMediaQuery("(min-width:300px)");
+  const _400 = useMediaQuery("(min-width:400px)");
+  const _700 = useMediaQuery("(min-width:700px)");
+
   return (
     <Stack
       flexDirection={"row"}
@@ -11,7 +15,7 @@ const Post = () => {
       border={"1px solid gray"}
       width={"70%"}
       borderRadius={"15px"}
-      p={2}
+      p={_700 ? 2 : _400 ? 1 : "5px"}
       mx={"auto"}
       sx={{
         ":hover": {
