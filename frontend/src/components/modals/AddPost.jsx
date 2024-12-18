@@ -7,6 +7,8 @@ import {
   useMediaQuery,
   Stack,
   Typography,
+  Avatar,
+  Button,
 } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
 import { FaImages } from "react-icons/fa";
