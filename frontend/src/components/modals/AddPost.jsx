@@ -67,7 +67,7 @@ const AddPost = () => {
               />
               {media ? (
                 <img
-                  src=""
+                  src={URL.createObjectURL(media)}
                   alt=""
                   id="url-img"
                   width={_500 ? 300 : _300 ? 200 : 100}
