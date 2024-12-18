@@ -1,4 +1,11 @@
-import { Stack, Badge, Avatar, Stepper, AvatarGroup } from "@mui/material";
+import {
+  Stack,
+  Badge,
+  Avatar,
+  Stepper,
+  AvatarGroup,
+  useMediaQuery,
+} from "@mui/material";
 import React from "react";
 
 const PostOne = () => {

@@ -1,6 +1,13 @@
 import React from "react";
-import { Avatar, Stack, Typography, Button } from "@mui/material";
+import {
+  Avatar,
+  Stack,
+  Typography,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 const ProfileBar = () => {
+  const _700 = useMediaQuery("(min-width:700px)");
   return (
     <>
       <Stack
@@ -10,7 +17,7 @@ const ProfileBar = () => {
         py={2}
         mx={"auto"}
         border={"1px solid lightgrey"}
-        width={"90%"}
+        width={_700 ? "80%" : "90%"}
         borderRadius={"15px"}
         sx={{
           ":hover": {
@@ -24,13 +31,21 @@ const ProfileBar = () => {
         <Stack flexDirection={"row"} gap={2}>
           <Avatar src="" alt="" />
           <Stack flexDirection={"column"}>
-            <Typography variant="h6" fontWeight={"bold"} fontSize={"1rem"}>
+            <Typography
+              variant="h6"
+              fontWeight={"bold"}
+              fontSize={_700 ? "1rem" : "0.9rem"}
+            >
               nb_2123123
             </Typography>
-            <Typography variant="caption" fontSize={"1.1rem"} color={"gray"}>
+            <Typography
+              variant="caption"
+              fontSize={_700 ? "1.1rem" : "0.75rem"}
+              color={"gray"}
+            >
               this is bio....
             </Typography>
-            <Typography variant="caption" fontSize={"1rem"}>
+            <Typography variant="caption" fontSize={_700 ? "1rem" : "0.9rem"}>
               3 followers
             </Typography>
           </Stack>
