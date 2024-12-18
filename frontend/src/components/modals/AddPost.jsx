@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
 import { FaImages } from "react-icons/fa";
-import { BiBorderRadius } from "react-icons/bi";
 
 const AddPost = () => {
   const _700 = useMediaQuery("(min-width:700px)");
