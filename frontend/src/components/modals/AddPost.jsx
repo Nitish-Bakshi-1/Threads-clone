@@ -65,13 +65,15 @@ const AddPost = () => {
                   setText(e.target.value);
                 }}
               />
-              <img
-                src=""
-                alt=""
-                id="url-img"
-                width={_500 ? 300 : _300 ? 200 : 100}
-                height={_500 ? 300 : _300 ? 200 : 100}
-              />
+              {media ? (
+                <img
+                  src=""
+                  alt=""
+                  id="url-img"
+                  width={_500 ? 300 : _300 ? 200 : 100}
+                  height={_500 ? 300 : _300 ? 200 : 100}
+                />
+              ) : null}
               <FaImages
                 size={28}
                 className="image-icon"
