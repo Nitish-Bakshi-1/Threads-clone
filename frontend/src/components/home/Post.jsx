@@ -13,7 +13,7 @@ const Post = () => {
       flexDirection={"row"}
       justifyContent={"space-around "}
       border={"1px solid gray"}
-      width={"70%"}
+      width={_700 ? "70%" : _300 ? "90%" : "100%"}
       borderRadius={"15px"}
       p={_700 ? 2 : _400 ? 1 : "5px"}
       mx={"auto"}
@@ -26,7 +26,7 @@ const Post = () => {
         transition: "all ease-in-out 0.2s",
       }}
     >
-      <Stack flexDirection={"row"} gap={5}>
+      <Stack flexDirection={"row"} gap={_700 ? 2 : 1}>
         <PostOne />
         <PostTwo />
       </Stack>
@@ -45,7 +45,7 @@ const Post = () => {
         >
           24 hours
         </Typography>
-        <IoIosMore size={28} />
+        <IoIosMore size={_700 ? 28 : 20} />
       </Stack>
     </Stack>
   );
