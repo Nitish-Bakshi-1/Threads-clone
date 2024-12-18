@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Dialog,
   useMediaQuery,
@@ -13,6 +13,17 @@ import { RxCross2 } from "react-icons/rx";
 
 const EditProfile = () => {
   const _700 = useMediaQuery("(min-width:700px)");
+  const [pic, setPic] = useState();
+  const [bio, setBio] = useState();
+
+  const imageRef = useRef();
+
+  const handlePhoto = () => {
+    imageRef.current.click();
+  };
+
+  const handleUpdate = () => {};
+
   const handleClose = () => {};
   return (
     <>
@@ -31,7 +42,7 @@ const EditProfile = () => {
         <DialogContent>
           <Stack flexDirection={"column"} gap={1}>
             <Avatar
-              src=""
+              src={pic ? URL.createObjectURL(pic) : null}
               alt=""
               sx={{ height: 96, height: 96, alignSelf: "center" }}
             />
@@ -48,10 +59,20 @@ const EditProfile = () => {
                   cursor: "pointer",
                 },
               }}
+              onClick={handlePhoto}
             >
               Change
             </Button>
-            <input type="file" className="file-input" accept={"image/*"} />
+            ref={imageRef}
+            <input
+              type="file"
+              className="file-input"
+              accept={"image/*"}
+              ref={imageRef}
+              onChange={(e) => {
+                setPic(e.target.files[0]);
+              }}
+            />
             <Typography
               variant="subtitle1"
               fontWeight={"bold"}
@@ -98,6 +119,9 @@ const EditProfile = () => {
               readOnly
               className="text1"
               placeholder=""
+              onChange={(e) => {
+                setBio(e.target.value);
+              }}
             />
           </Stack>
           <Button
@@ -115,6 +139,7 @@ const EditProfile = () => {
                 bgcolor: "grey",
               },
             }}
+            onClick={handleUpdate}
           >
             Update
           </Button>
