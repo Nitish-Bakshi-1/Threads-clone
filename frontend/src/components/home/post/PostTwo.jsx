@@ -21,7 +21,7 @@ const PostTwo = () => {
           >
             Nitish-Bakshi
           </Typography>
-          <Link to={"/post/2"}>
+          <Link to={"/post/2"} className="Link">
             <Typography
               variant="h5"
               fontSize={

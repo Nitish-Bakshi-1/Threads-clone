@@ -1,8 +1,6 @@
-import { Menu } from "@mui/material";
+import { Menu, MenuItem } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import Home from "../..pages/protected/Home";
-import { ClassNames } from "@emotion/react";
 
 const MainMenu = () => {
   const handleClose = () => {};
@@ -19,7 +17,7 @@ const MainMenu = () => {
         transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
         <MenuItem onClick={handleToggleTheme}>Toggle theme</MenuItem>
-        <Link to={"/profile/threads/2"} className="link">
+        <Link to={"/profile/threads/2"} className="Link">
           <MenuItem>My profile</MenuItem>
         </Link>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
