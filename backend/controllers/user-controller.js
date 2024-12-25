@@ -191,6 +191,21 @@ export const followUser = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
+    const userExists = await User.findById(req.user._id);
+    if (!userExists) {
+      res.status(400).send({
+        msg: "no such user",
+      });
+    }
+    const form = formidable({});
+    form.parse(req, async (err, fields, files) => {
+      if (err) {
+        return res.status(400).json({
+          msg: "error is formidable!",
+          err: err,
+        });
+      }
+    });
   } catch (err) {
     res.ststus(400).json({
       msg: "error in updateprofile ",
