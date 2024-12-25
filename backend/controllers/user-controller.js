@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user-model.js";
 import bcrypt from "bcrypt";
+import Post from "../models/post-model.js";
 
 export const signIn = async (req, res) => {
   try {
@@ -69,11 +70,12 @@ export const login = async (req, res) => {
     if (!email || !password) {
       res
         .json({
-          message: "incomplete credentials either email or password is missing",
+          message:
+            "incomplete credentials either email or password is missing!",
         })
         .status(400);
     }
-    const userExists = User.findOne({ email });
+    const userExists = await User.findOne({ email });
     if (!userExists) {
       res.json({ msg: "user doesn't exist, signin first" });
     }
