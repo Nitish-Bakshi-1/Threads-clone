@@ -155,6 +155,28 @@ export const followUser = async (req, res) => {
         msg: "user doesn't exits",
       });
     }
+    if (userExists.followers.includes(req.user._id)) {
+      await User.findByIdAndUpdate(
+        userExists._id,
+        {
+          $pull: { followers: req.user._id },
+        },
+        {
+          new: true,
+        }
+      );
+      return res.status(201).json({ msg: `unfollowed ${userExists.username}` });
+    }
+    await User.findByIdAndUpdate(
+      userExists._id,
+      {
+        $push: { followers: req.user._id },
+      },
+      {
+        new: true,
+      }
+    );
+    return res.status(201).json({ msg: `Followed ${userExists.username}` });
   } catch (error) {
     res.status(400).json({
       msg: "error in follow user endpoint via tc",
