@@ -115,3 +115,16 @@ export const login = async (req, res) => {
     });
   }
 };
+export const userDetails = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ msg: "id is required!" });
+    }
+    const user = await User.findById(id);
+  } catch (err) {
+    res.status(400).send({
+      msg: "error in fetching user details via tc",
+    });
+  }
+};
