@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user-model.js";
 import bcrypt from "bcrypt";
+import formidable from "formidable";
+import cloudinary from "cloudinary";
 
 export const signIn = async (req, res) => {
   try {
@@ -187,4 +189,12 @@ export const followUser = async (req, res) => {
   }
 };
 
-export const updateProfile = async (req, res) => {};
+export const updateProfile = async (req, res) => {
+  try {
+  } catch (err) {
+    res.ststus(400).json({
+      msg: "error in updateprofile ",
+      err: err.message,
+    });
+  }
+};
