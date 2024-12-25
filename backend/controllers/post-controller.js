@@ -4,7 +4,7 @@ import Comment from "../models/comment-model.js";
 import cloudinary from "../config/cloudinary.js";
 import formidable from "formidable";
 
-exports.addPost = async (req, res) => {
+export const addPost = async (req, res) => {
   try {
     const form = formidable({});
     form.parse(req, async (err, fields, files) => {

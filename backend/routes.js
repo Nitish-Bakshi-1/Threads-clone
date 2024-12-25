@@ -9,6 +9,7 @@ import {
   updateProfile,
   userDetails,
 } from "./controllers/user-controller.js";
+import { addPost } from "./controllers/post-controller.js";
 import auth from "./middlewares/auth.js";
 
 const router = express.Router();
@@ -21,5 +22,7 @@ router.put("/update", auth, updateProfile);
 router.get("/users/search/:query", auth, searchUser);
 router.post("/logout", auth, logout);
 router.get("/me", auth, myInfo);
+
+router.post("/post", auth, addPost);
 
 export default router;

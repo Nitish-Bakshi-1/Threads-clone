@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const commentSchema = new Mongoose.Schema(
+const commentSchema = new mongoose.Schema(
   {
     admin: {
       type: mongoose.Schema.Types.ObjectId,
