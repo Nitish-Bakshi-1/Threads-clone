@@ -48,3 +48,35 @@ export const addPost = async (req, res) => {
     res.json({ msg: "error in addPost", err: err.message }).status(400);
   }
 };
+
+export const getAllPosts = async (req, res) => {
+  try {
+    const { page } = req.query;
+    let pageNumber = page;
+    if (!page || page === undefined) {
+      pageNumber = 1;
+    }
+    const posts = await Post.find({})
+      .sort({ createdAt: -1 })
+      .skip((pageNumber - 1) * 3)
+      .limit(3)
+      .populate("admin")
+      .populate("likes")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "admin",
+          model: "user",
+        },
+      });
+    res.status(200).json({
+      msg: "post fetched",
+      posts,
+    });
+  } catch (err) {
+    res.json({
+      msg: "errors in AllPosts",
+      err: err.message,
+    });
+  }
+};
