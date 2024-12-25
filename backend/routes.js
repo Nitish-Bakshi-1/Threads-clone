@@ -2,6 +2,7 @@ import express from "express";
 import {
   followUser,
   login,
+  searchUser,
   signIn,
   updateProfile,
   userDetails,
@@ -15,5 +16,6 @@ router.post("/login", login);
 router.get("/user/:id", userDetails);
 router.put("/user/follow/:id", auth, followUser);
 router.put("/update", auth, updateProfile);
+router.get("/users/search/:query", auth, searchUser);
 
 export default router;
