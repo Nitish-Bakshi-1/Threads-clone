@@ -3,6 +3,7 @@ import {
   followUser,
   login,
   logout,
+  myInfo,
   searchUser,
   signIn,
   updateProfile,
@@ -19,5 +20,6 @@ router.put("/user/follow/:id", auth, followUser);
 router.put("/update", auth, updateProfile);
 router.get("/users/search/:query", auth, searchUser);
 router.post("/logout", auth, logout);
+router.get("/me", auth, myInfo);
 
 export default router;

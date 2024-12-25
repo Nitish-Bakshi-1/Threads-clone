@@ -268,6 +268,7 @@ export const searchUser = async (req, res) => {
     res.status(400).json({ msg: "error in searchUser", err: err.message });
   }
 };
+
 export const logout = async (req, res) => {
   try {
     res.cookie("token", "", {
@@ -283,6 +284,16 @@ export const logout = async (req, res) => {
     res.status(400).json({
       msg: "error in logout ",
       err: err.message,
+    });
+  }
+};
+
+export const myInfo = async (req, res) => {
+  try {
+    res.status(200).json({ me: req.user });
+  } catch (err) {
+    res.status(400).json({
+      msg: "error in myInfo",
     });
   }
 };
