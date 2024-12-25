@@ -121,7 +121,19 @@ export const userDetails = async (req, res) => {
     if (!id) {
       return res.status(400).json({ msg: "id is required!" });
     }
-    const user = await User.findById(id);
+    const user = await User.findById(id)
+      .select("-password")
+      .populate("followers")
+      .populate({
+        path: "threads",
+        populate: [{ path: "likes" }, { path: "comments" }, { path: "admin" }],
+      })
+      .populate({ path: "replies", populate: { path: "admin" } })
+      .populate({
+        path: "reposts",
+        populate: [{ path: "likes" }, { path: "comments" }, { path: "admin" }],
+      });
+    res.send("");
   } catch (err) {
     res.status(400).send({
       msg: "error in fetching user details via tc",
