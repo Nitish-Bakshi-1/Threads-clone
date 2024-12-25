@@ -102,6 +102,30 @@ export const deletePost = async (req, res) => {
         msg: "you are not authorized to delete this post",
       });
     }
+    if (postExists.media) {
+      await cloudinary.uploader,
+        destroy(postExists.public_id, (err, result) => {
+          console.log({ err, result });
+        });
+    }
+    await Comment.deleteMany({ _id: { $in: postExists.comments } });
+    await User.updateMany(
+      { $or: [{ threads: id }, { reposts: id }, { replies: id }] },
+      {
+        $pull: {
+          threads: id,
+          reposts: id,
+          replies: id,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+    await Post.findByIdAndDelete(id);
+    res.status(400).json({
+      msg: "post deleted!",
+    });
   } catch (err) {
     res
       .json({
