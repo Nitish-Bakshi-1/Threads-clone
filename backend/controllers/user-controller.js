@@ -205,6 +205,13 @@ export const updateProfile = async (req, res) => {
           err: err,
         });
       }
+      if (fields.text) {
+        await User.findByIdAndUpdate(
+          req.user._id,
+          { bio: fields.text },
+          { new: true }
+        );
+      }
     });
   } catch (err) {
     res.ststus(400).json({
