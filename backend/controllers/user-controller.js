@@ -250,3 +250,12 @@ export const updateProfile = async (req, res) => {
     });
   }
 };
+
+export const searchUser = async (req,res)=>{
+  try {
+    
+  } catch (error) {
+    res.status(400).json({msg:"error in searchUser",err:err.message}),
+    
+  }
+}
