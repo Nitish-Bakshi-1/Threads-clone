@@ -268,3 +268,18 @@ export const searchUser = async (req, res) => {
     res.status(400).json({ msg: "error in searchUser", err: err.message });
   }
 };
+export const logout = async (req, res) => {
+  try {
+    res.cookie("token", "", {
+      maxAge: Date.now(),
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    });
+  } catch (err) {
+    res.status(400).json({
+      msg: "error in logout ",
+      err: err.message,
+    });
+  }
+};
