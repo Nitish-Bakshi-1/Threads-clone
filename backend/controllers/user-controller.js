@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/user-model.js";
 import bcrypt from "bcrypt";
 import formidable from "formidable";
-import cloudinary from "cloudinary";
+import cloudinary from "../config/cloudinary.js";
 
 export const signIn = async (req, res) => {
   try {
@@ -193,7 +193,7 @@ export const updateProfile = async (req, res) => {
   try {
     const userExists = await User.findById(req.user._id);
     if (!userExists) {
-      res.status(400).send({
+      res.status(400).json({
         msg: "no such user",
       });
     }
@@ -213,11 +213,11 @@ export const updateProfile = async (req, res) => {
         );
       }
       if (files.media) {
-        if (userExists.public._id) {
+        if (userExists.public_id) {
           await cloudinary.uploader.destroy(
             userExists.public_id,
             (error, result) => {
-              console.log(error, result);
+              console.log({ error, result });
             }
           );
         }
@@ -244,7 +244,7 @@ export const updateProfile = async (req, res) => {
       msg: "profile updated successfully",
     });
   } catch (err) {
-    res.ststus(400).json({
+    res.status(400).json({
       msg: "error in updateprofile ",
       err: err.message,
     });
