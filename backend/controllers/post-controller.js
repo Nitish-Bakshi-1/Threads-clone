@@ -49,7 +49,7 @@ export const addPost = async (req, res) => {
   }
 };
 
-export const getAllPosts = async (req, res) => {
+export const allPost = async (req, res) => {
   try {
     const { page } = req.query;
     let pageNumber = page;
@@ -78,5 +78,36 @@ export const getAllPosts = async (req, res) => {
       msg: "errors in AllPosts",
       err: err.message,
     });
+  }
+};
+
+export const deletePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({
+        msg: "Id is required",
+      });
+    }
+    const postExists = await Post.findById(id);
+    if (!postExists) {
+      return res.status(400).json({
+        msg: "post not found",
+      });
+    }
+    const userId = req.user._id.toString();
+    const adminId = postExists.admin._id.toString();
+    if (userId !== adminId) {
+      return res.status(400).json({
+        msg: "you are not authorized to delete this post",
+      });
+    }
+  } catch (err) {
+    res
+      .json({
+        msg: "error in delete post",
+        err: err.message,
+      })
+      .status(400);
   }
 };
