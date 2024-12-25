@@ -63,3 +63,19 @@ export const signIn = async (req, res) => {
     });
   }
 };
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      res.json({
+        message: "incomplete credentials either email or password is missing",
+      });
+    }
+  } catch (err) {
+    res.json({
+      msg: "login error",
+      err: err.message,
+    });
+  }
+};
