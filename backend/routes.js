@@ -3,6 +3,7 @@ import {
   followUser,
   login,
   signIn,
+  updateProfile,
   userDetails,
 } from "./controllers/user-controller.js";
 import auth from "./middlewares/auth.js";
@@ -13,5 +14,6 @@ router.post("/signin", signIn);
 router.post("/login", login);
 router.get("/user/:id", userDetails);
 router.put("/user/follow/:id", auth, followUser);
+router.put("/update", auth, updateProfile);
 
 export default router;
