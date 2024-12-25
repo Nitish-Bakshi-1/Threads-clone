@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
+import router from "./routes.js";
 
 dotenv.config();
 
@@ -8,9 +9,7 @@ const app = express();
 
 connectDB();
 
-app.get("/", (req, res) => {
-  res.json("app");
-});
+app.use("", router);
 
 app.listen(process.env.PORT, function () {
   console.log("returned");
