@@ -133,10 +133,32 @@ export const userDetails = async (req, res) => {
         path: "reposts",
         populate: [{ path: "likes" }, { path: "comments" }, { path: "admin" }],
       });
-    res.send("");
+    res.send("User Details Fetched", user).status(200);
   } catch (err) {
     res.status(400).send({
       msg: "error in fetching user details via tc",
+      error: err.message,
+    });
+  }
+};
+export const followUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      res.status(400).json({
+        msg: "id id required",
+      });
+    }
+    const userExists = await User.findById(id);
+    if (!userExists) {
+      res.status(400).json({
+        msg: "user doesn't exits",
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      msg: "error in follow user endpoint via tc",
+      err: err.message,
     });
   }
 };
