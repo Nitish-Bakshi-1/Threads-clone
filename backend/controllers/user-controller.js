@@ -276,6 +276,9 @@ export const logout = async (req, res) => {
       sameSite: "none",
       secure: true,
     });
+    res.status(201).json({
+      msg: "You logged out",
+    });
   } catch (err) {
     res.status(400).json({
       msg: "error in logout ",
