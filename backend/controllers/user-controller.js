@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user-model.js";
 import bcrypt from "bcrypt";
-import Post from "../models/post-model.js";
 
 export const signIn = async (req, res) => {
   try {
@@ -64,6 +63,7 @@ export const signIn = async (req, res) => {
     });
   }
 };
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -115,6 +115,7 @@ export const login = async (req, res) => {
     });
   }
 };
+
 export const userDetails = async (req, res) => {
   try {
     const { id } = req.params;
@@ -141,6 +142,7 @@ export const userDetails = async (req, res) => {
     });
   }
 };
+
 export const followUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -184,3 +186,5 @@ export const followUser = async (req, res) => {
     });
   }
 };
+
+export const updateProfile = async (req, res) => {};
