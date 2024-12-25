@@ -68,10 +68,17 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      res.json({
-        message: "incomplete credentials either email or password is missing",
-      });
+      res
+        .json({
+          message: "incomplete credentials either email or password is missing",
+        })
+        .status(400);
     }
+    const userExists = User.findOne({ email });
+    if (!userExists) {
+      res.json({ msg: "user doesn't exist, signin first" });
+    }
+    const passwordMatched = await bcrypt.compare(password, userExists.password);
   } catch (err) {
     res.json({
       msg: "login error",
