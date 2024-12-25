@@ -221,7 +221,27 @@ export const updateProfile = async (req, res) => {
             }
           );
         }
+        const uploadedImage = await cloudinary.uploader.upload(
+          files.media.filepath,
+          { folder: "Threads_clone/Profiles" }
+        );
+        if (!uploadedImage) {
+          return res.status(400).json({
+            msg: "error while uploading pic!",
+          });
+        }
+        await User.findByIdAndUpdate(
+          req.user._id,
+          {
+            profilePic: uploadedImage.secure_url,
+            public_id: uploadedImage.public_id,
+          },
+          { new: true }
+        );
       }
+    });
+    res.status(201).json({
+      msg: "profile updated successfully",
     });
   } catch (err) {
     res.ststus(400).json({
