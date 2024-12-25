@@ -9,7 +9,7 @@ const app = express();
 
 connectDB();
 
-app.use("", router);
+app.use("/api", router);
 
 app.listen(process.env.PORT, function () {
   console.log("returned");
