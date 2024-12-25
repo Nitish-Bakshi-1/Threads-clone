@@ -66,7 +66,6 @@ export const signIn = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     if (!email || !password) {
       res
         .json({
@@ -79,9 +78,37 @@ export const login = async (req, res) => {
       res.json({ msg: "user doesn't exist, signin first" });
     }
     const passwordMatched = await bcrypt.compare(password, userExists.password);
+    if (!passwordMatched) {
+      res
+        .json({
+          msg: "incorrect credentials (chk password)",
+        })
+        .status(400);
+    }
+    const accessToken = jwt.sign(
+      { token: userExists._id },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "30d",
+      }
+    );
+    if (!accessToken) {
+      return res.status(400).json({
+        msg: "token not generated in login !",
+      });
+    }
+    res.cookie("token", accessToken, {
+      maxAge: 1000 * 60 * 60 * 24 * 30,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
+    res.status(200).json({
+      msg: "user logged in successfully !",
+    });
   } catch (err) {
     res.json({
-      msg: "login error",
+      msg: "login error via tc",
       err: err.message,
     });
   }
