@@ -251,11 +251,20 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-export const searchUser = async (req,res)=>{
+export const searchUser = async (req, res) => {
   try {
-    
+    const { query } = req.params;
+    const users = await User.find({
+      $or: [
+        { username: { $regex: query, $options: "i" } },
+        { email: { $regex: query, $options: "i" } },
+      ],
+    });
+    res.status(200).json({
+      msg: "searched!",
+      users,
+    });
   } catch (error) {
-    res.status(400).json({msg:"error in searchUser",err:err.message}),
-    
+    res.status(400).json({ msg: "error in searchUser", err: err.message });
   }
-}
+};
