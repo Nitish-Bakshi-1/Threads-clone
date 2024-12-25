@@ -212,6 +212,16 @@ export const updateProfile = async (req, res) => {
           { new: true }
         );
       }
+      if (files.media) {
+        if (userExists.public._id) {
+          await cloudinary.uploader.destroy(
+            userExists.public_id,
+            (error, result) => {
+              console.log(error, result);
+            }
+          );
+        }
+      }
     });
   } catch (err) {
     res.ststus(400).json({
