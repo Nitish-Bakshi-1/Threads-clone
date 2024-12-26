@@ -24,10 +24,11 @@ const auth = async (req, res, next) => {
     }
     console.log(5);
 
-    const user = await User.findById(decodedToken.token).populate("followers");
-    // .populate("threads")
-    // .populate("reposts")
-    // .populate("replies");
+    const user = await User.findById(decodedToken.token)
+      .populate("followers")
+      .populate("threads")
+      .populate("reposts")
+      .populate("replies");
     console.log(6);
 
     if (!user) {

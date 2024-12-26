@@ -18,7 +18,7 @@ import {
   singlePost,
 } from "./controllers/post-controller.js";
 import auth from "./middlewares/auth.js";
-import { addComment } from "./controllers/comment-controller.js";
+import { addComment, deleteComment } from "./controllers/comment-controller.js";
 
 const router = express.Router();
 
@@ -40,5 +40,6 @@ router.put("/repost/:id", auth, repost);
 router.get("/post/:id", auth, singlePost);
 
 router.post("/comment/:id", auth, addComment);
+router.delete("/comment/:postId/:id", auth, deleteComment);
 
 export default router;
