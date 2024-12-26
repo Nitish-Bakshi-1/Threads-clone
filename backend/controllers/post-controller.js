@@ -234,12 +234,13 @@ export const singlePost = async (req, res) => {
         path: "admin",
         select: "-password",
       })
-      .populate({ path: likes })
-      .populate(
-        { path: comments }.populate({
+      .populate({ path: "likes", select: "-password" })
+      .populate({
+        path: "comments",
+        populate: {
           path: "admin",
-        })
-      );
+        },
+      });
     res.status(200).json({
       msg: "post fetched",
       post,

@@ -35,6 +35,6 @@ router.get("/post", auth, allPost);
 router.delete("/post/:id", auth, deletePost);
 router.put("/post/like/:id", auth, likePost);
 router.put("/repost/:id", auth, repost);
-router.get("/post:id", auth, singlePost);
+router.get("/post/:id", auth, singlePost);
 
 export default router;
