@@ -14,6 +14,7 @@ import {
   allPost,
   deletePost,
   likePost,
+  repost,
 } from "./controllers/post-controller.js";
 import auth from "./middlewares/auth.js";
 
@@ -32,5 +33,6 @@ router.post("/post", auth, addPost);
 router.get("/post", auth, allPost);
 router.delete("/post/:id", auth, deletePost);
 router.put("/post/like/:id", auth, likePost);
+router.put("/repost/:id", auth, repost);
 
 export default router;

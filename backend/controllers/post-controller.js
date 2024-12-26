@@ -3,6 +3,7 @@ import Post from "../models/post-model.js";
 import Comment from "../models/comment-model.js";
 import cloudinary from "../config/cloudinary.js";
 import formidable from "formidable";
+import mongoose from "mongoose";
 
 export const addPost = async (req, res) => {
   try {
@@ -60,8 +61,8 @@ export const allPost = async (req, res) => {
       .sort({ createdAt: -1 })
       .skip((pageNumber - 1) * 3)
       .limit(3)
-      .populate("admin")
-      .populate("likes")
+      .populate({ path: "likes", select: "-password" })
+      .populate({ path: "admin", select: "-password" })
       .populate({
         path: "comments",
         populate: {
@@ -179,6 +180,42 @@ export const likePost = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       msg: "error in likePost",
+      err: err.message,
+    });
+  }
+};
+
+export const repost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      res
+        .json({
+          msg: "id is needed",
+        })
+        .status(400);
+    }
+    const post = await Post.findById(id);
+    if (!post) {
+      return res.status(400).json({
+        msg: "no such post!",
+      });
+    }
+    const newId = new mongoose.Types.ObjectId(id);
+    if (req.user.repost.includes(newId)) {
+      return res.status(400).json({
+        msg: "this post is already reposted !",
+      });
+    }
+    await User.findByIdAndUpdate(
+      req.user._id,
+      { $push: { repost: post._id } },
+      { new: true }
+    );
+    res.status(200).json({ msg: "reposted" });
+  } catch (err) {
+    res.json({
+      msg: "error in repost !",
       err: err.message,
     });
   }
