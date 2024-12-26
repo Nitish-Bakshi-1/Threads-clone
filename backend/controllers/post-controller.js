@@ -103,10 +103,9 @@ export const deletePost = async (req, res) => {
       });
     }
     if (postExists.media) {
-      await cloudinary.uploader,
-        destroy(postExists.public_id, (err, result) => {
-          console.log({ err, result });
-        });
+      await cloudinary.uploader.destroy(postExists.public_id, (err, result) => {
+        console.log({ err, result });
+      });
     }
     await Comment.deleteMany({ _id: { $in: postExists.comments } });
     await User.updateMany(
@@ -123,7 +122,7 @@ export const deletePost = async (req, res) => {
       }
     );
     await Post.findByIdAndDelete(id);
-    res.status(400).json({
+    res.status(200).json({
       msg: "post deleted!",
     });
   } catch (err) {
@@ -133,5 +132,15 @@ export const deletePost = async (req, res) => {
         err: err.message,
       })
       .status(400);
+  }
+};
+
+export const likePost = async (req, res) => {
+  try {
+  } catch (err) {
+    res.status(400).json({
+      msg: "error in likePost",
+      err: err.message,
+    });
   }
 };
