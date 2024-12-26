@@ -18,11 +18,13 @@ import {
   singlePost,
 } from "./controllers/post-controller.js";
 import auth from "./middlewares/auth.js";
+import { addComment } from "./controllers/comment-controller.js";
 
 const router = express.Router();
 
 router.post("/signin", signIn);
 router.post("/login", login);
+
 router.get("/user/:id", userDetails);
 router.put("/user/follow/:id", auth, followUser);
 router.put("/update", auth, updateProfile);
@@ -36,5 +38,7 @@ router.delete("/post/:id", auth, deletePost);
 router.put("/post/like/:id", auth, likePost);
 router.put("/repost/:id", auth, repost);
 router.get("/post/:id", auth, singlePost);
+
+router.post("/comment/:id", auth, addComment);
 
 export default router;
