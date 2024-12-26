@@ -220,3 +220,34 @@ export const repost = async (req, res) => {
     });
   }
 };
+
+export const singlePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({
+        msg: "id is required",
+      });
+    }
+    const post = await Post.findById(id)
+      .populate({
+        path: "admin",
+        select: "-password",
+      })
+      .populate({ path: likes })
+      .populate(
+        { path: comments }.populate({
+          path: "admin",
+        })
+      );
+    res.status(200).json({
+      msg: "post fetched",
+      post,
+    });
+  } catch (err) {
+    res.json({
+      msg: "error in single post",
+      err: err.message,
+    });
+  }
+};
