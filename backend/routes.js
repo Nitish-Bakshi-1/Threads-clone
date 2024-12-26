@@ -9,7 +9,12 @@ import {
   updateProfile,
   userDetails,
 } from "./controllers/user-controller.js";
-import { addPost, allPost, deletePost } from "./controllers/post-controller.js";
+import {
+  addPost,
+  allPost,
+  deletePost,
+  likePost,
+} from "./controllers/post-controller.js";
 import auth from "./middlewares/auth.js";
 
 const router = express.Router();
@@ -26,5 +31,6 @@ router.get("/me", auth, myInfo);
 router.post("/post", auth, addPost);
 router.get("/post", auth, allPost);
 router.delete("/post/:id", auth, deletePost);
+router.put("/post/like/:id", auth, likePost);
 
 export default router;

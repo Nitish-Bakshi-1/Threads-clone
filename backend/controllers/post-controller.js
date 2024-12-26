@@ -151,7 +151,7 @@ export const likePost = async (req, res) => {
         msg: "no such post!",
       });
     }
-    if (post.like.includes(req.user._id)) {
+    if (post.likes.includes(req.user._id)) {
       await Post.findByIdAndUpdate(
         id,
         { $pull: { likes: req.user._id } },
