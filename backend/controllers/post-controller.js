@@ -137,6 +137,45 @@ export const deletePost = async (req, res) => {
 
 export const likePost = async (req, res) => {
   try {
+    const { id } = req.params;
+    if (!id) {
+      return res
+        .json({
+          msg: "id is required",
+        })
+        .status(400);
+    }
+    const post = await Post.findById(id);
+    if (!post) {
+      res.json({
+        msg: "no such post!",
+      });
+    }
+    if (post.like.includes(req.user._id)) {
+      await Post.findByIdAndUpdate(
+        id,
+        { $pull: { likes: req.user._id } },
+        { new: true }
+      );
+
+      return res
+        .json({
+          msg: "Post disliked",
+        })
+        .status(201);
+    }
+
+    await Post.findByIdAndUpdate(
+      id,
+      { $push: { likes: req.user._id } },
+      { new: true }
+    );
+
+    res
+      .json({
+        msg: "Post liked",
+      })
+      .status(201);
   } catch (err) {
     res.status(400).json({
       msg: "error in likePost",
